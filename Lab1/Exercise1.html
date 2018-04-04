@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exercise1</title>
+
+</head>
+<body>
+  <ul>
+    <li data-time="5:17">ECMA6 Video</li>
+    <li data-time="8:22">Node Video</li>
+    <li data-time="3:34">Node Video</li>
+    <li data-time="4:29">ECMA6 Video</li>
+  </ul>
+</body>
+
+<script type="text/javascript">
+  const items = Array.from(document.querySelectorAll('[data-time]'));
+  console.log( items.filter(item => item.innerText.includes("ECMA6")) );
+
+
+  console.log(  items.map(item => item.getAttribute('data-time')) );
+
+
+  console.log(  items.map(item => item.getAttribute('data-time').substring(item.getAttribute('data-time').indexOf(":") + 1, item.length)) );
+
+
+  console.log(  (items.map(item => 
+                          parseInt(item.getAttribute('data-time').substring(0, item.getAttribute('data-time').indexOf(":")))
+                        ).reduce((total, minute) => total + minute) * 60 + 
+                items.map(item => 
+                          parseInt(item.getAttribute('data-time').substring(item.getAttribute('data-time').indexOf(":") + 1, item.length))
+                        ).reduce((total, minute) => total + minute)) / 60
+  );
+
+</script>
+
+</html>

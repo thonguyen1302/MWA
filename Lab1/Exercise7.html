@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exercise7</title>
+
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+  Array.prototype.bubbleSort = function() {
+    let arr = this
+
+    for (let i in arr) {
+      for (let j in arr) {
+        if (arr[i] < arr[j]) {
+          let t = arr[i];
+          arr[i] = arr[j];
+          arr[j] = t;
+        }
+      }
+    }
+
+    return arr;
+  };
+
+
+  console.log([6,4,0,3,-2,1].bubbleSort());
+</script>
+
+</html>
