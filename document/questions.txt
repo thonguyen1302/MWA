@@ -1,0 +1,6 @@
+1. Why file I/O r?i mà v?n k thay d?i
+2. Exports point to another object là gi
+3. How to use call and apply in quizz 1
+4. Give me the code in slide 3
+5. tell me more about slide 4
+6. result slide5
