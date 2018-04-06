@@ -4,3 +4,6 @@
 4. Give me the code in slide 3 - done
 5. tell me more about slide 4 - done
 6. result slide5 - done
+
+7. Await
+8. subscribe - skip
