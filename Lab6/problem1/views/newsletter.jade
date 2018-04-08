@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1 Subscription System
+    p Welcome to Subscription System
+    form(method='POST' action='/newsletter')
+        input(type='hidden', name='_csrf', value='#{csrf}')
+        input(type='text', placeholder='Enter your email...' name='email')
+        button(type='submit') Subscribe
+    if (errors)
+        p= errors[0].msg

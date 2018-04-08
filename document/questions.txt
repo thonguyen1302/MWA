@@ -9,3 +9,4 @@
 8. subscribe - skip
 9. why we use 'start'
 10. submit assignment
+11. dependencies

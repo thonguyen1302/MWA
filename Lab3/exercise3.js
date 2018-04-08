@@ -1,20 +1,16 @@
-var EventEmitter = require('events');
-var util = require('util');
+let EventEmitter = require('events');
 
-class Clock {
-    constructor(){
-        EventEmitter.call(this);
+class Clock extends EventEmitter {
+    constructor() {
+        super();
+        let self = this;
+        setInterval(function () {
+            self.emit('tick');
+        }, 1000);
     }
 }
 
-util.inherits(Clock, EventEmitter);
-
-var clock = new Clock();
-
-clock.on('tick', function() {
-    console.log('Woohoo');
+let object = new Clock();
+object.on('tick', function () {
+    console.log("woohoo");
 });
-
-setInterval(function(){
-    clock.emit('tick');
-}, 1000);

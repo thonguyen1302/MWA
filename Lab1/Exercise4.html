@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Exercise4</title>
-
+  <meta charset="UTF-8">
+  <title>Lab 1 - Problem 4</title>
 </head>
 <body>
   <h3>BMI Calculator</h3>
-  <label> <input type="radio" name="unit" value="english" /> English </label>
-  <input type="number" name="height" placeholder="Enter your height" />
-  <input type="number" name="weight" placeholder="Enter your weight" />
+  <label><input type="radio" name="unit" value="metric"/> Metric</label>
+  <label><input type="radio" name="unit" value="english"/> English</label>
+  <input type="number" name="height" placeholder="Enter your height"/>
+  <input type="number" name="weight" placeholder="Enter your weight"/>
   <button id="calculate">Calculate</button>
   <div id="output"></div>
 </body>
@@ -17,9 +18,23 @@
   'use strict';
 
   class BMICalculator {
-    constructor(height, weight) {
-      this.height = height;
-      this.weight = weight;
+    constructor() {
+        const radioButtons = document.getElementsByName("unit");
+        let radioBtnValue;
+        for (let i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
+                radioBtnValue = radioButtons[i].value;
+            }
+        }
+
+        this.height = parseInt(document.getElementsByName("height")[0].value);
+        this.weight = parseInt(document.getElementsByName("weight")[0].value);
+        this.unit = radioBtnValue;
+
+        if (this.unit === "english") {
+            this.height = this.height * 0.0254;
+            this.weight = this.weight * 0.4536;
+        }
     }
 
     isNumeric(n) {

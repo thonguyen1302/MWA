@@ -1,0 +1,86 @@
+doctype html
+html(lang="en")
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        h1 Welcome to #{title}
+
+        h2 #{table_title1}
+        div
+            table
+                thead
+                    tr
+                        th id
+                        th Name
+                        th Username
+                        th Email
+                        th City
+                        th Zip code
+                        th Latitude
+                        th Longitude
+                        th Website
+                tbody
+                    for user in usersListPromises
+                        tr
+                            td: !{user.id}
+                            td: !{user.name}
+                            td: !{user.username}
+                            td: !{user.email}
+                            td: !{user.address.city}
+                            td: !{user.address.zipcode}
+                            td: !{user.address.geo.lat}
+                            td: !{user.address.geo.lng}
+                            td: !{user.website}
+        h2 #{table_title2}
+        div
+            table
+                thead
+                    tr
+                        th id
+                        th Name
+                        th Username
+                        th Email
+                        th City
+                        th Zip code
+                        th Latitude
+                        th Longitude
+                        th Website
+                tbody
+                    for user in usersListObservables
+                        tr
+                            td: !{user.id}
+                            td: !{user.name}
+                            td: !{user.username}
+                            td: !{user.email}
+                            td: !{user.address.city}
+                            td: !{user.address.zipcode}
+                            td: !{user.address.geo.lat}
+                            td: !{user.address.geo.lng}
+                            td: !{user.website}
+        h2 #{table_title3}
+        div
+            table
+                thead
+                    tr
+                        th id
+                        th Name
+                        th Username
+                        th Email
+                        th City
+                        th Zip code
+                        th Latitude
+                        th Longitude
+                        th Website
+                tbody
+                    for user in usersListAsyncAwait
+                        tr
+                            td: !{user.id}
+                            td: !{user.name}
+                            td: !{user.username}
+                            td: !{user.email}
+                            td: !{user.address.city}
+                            td: !{user.address.zipcode}
+                            td: !{user.address.geo.lat}
+                            td: !{user.address.geo.lng}
+                            td: !{user.website}

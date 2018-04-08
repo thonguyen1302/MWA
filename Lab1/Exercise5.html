@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Exercise4</title>
+  <title>Exercise6</title>
 
 </head>
 <body>
@@ -9,18 +9,23 @@
 </body>
 
 <script type="text/javascript">
-  String.prototype.filter = function(arr) {
-    let str = this
-
-    for (let word of arr) {
-      str = str.replace(word, "***");
+  class Person {
+    constructor(name) {
+      this.name = name;
     }
 
-    return str;
-  };
+    teach(subject) {
+      return this.name + " is now teaching " + subject;
+    }
+  }
 
+  var TeacherA = new Person("Asaad");
+  var TeacherB = new Person("Xing");
 
-  console.log("This house is nice!".filter(['house', 'nice']));
+  console.log(TeacherA.teach("WAP"));
+
+  console.log(TeacherB.teach("MWA"));
+
 
 </script>
 
