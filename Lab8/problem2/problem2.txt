@@ -1,0 +1,3 @@
+As we found that indexing improves the performance of database during all search, insert and delete operations, we can use the concept of indexing here in our library model so that these operations are improved from O(n) time to O(logn).
+
+As per the requirement of the project tagged keywords are used for searching, as well as librarian uses the search operation of books too for finding out the books borrowed, we can index isbn_number of books as well as index keywords so that these indexing will improve performance for searching. In this way our design model's performance will be drastically improved and makes the application much more faster.

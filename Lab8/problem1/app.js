@@ -7,12 +7,9 @@ var bodyParser = require('body-parser');
 var mongo = require('mongoskin');
 
 var index = require('./routes/index');
-var secret = require('./routes/secret');
+var users = require('./routes/users');
 
 var app = express();
-
-var db = mongo.db('mongodb://localhost:27017/lab7', {native_parser: true});
-db.bind('homework7');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,13 +23,16 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var db = mongo.db('mongodb://localhost:27017/lab8', {native_parser: true});
+db.bind('restaurants');
+
 app.use(function (req, res, next) {
     req.db = db;
     next();
 });
 
 app.use('/', index);
-app.use('/secret', secret);
+app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -51,8 +51,6 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
-
-db.close();
 
 app.listen(8080);
 

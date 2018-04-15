@@ -1,0 +1,20 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+.deletebtn, .editbtn, .marginleft {
+    margin-left: 5px;
+}
+
+.locationInfo {
+    font-size: 1.2em;
+}
+
+a:hover {
+    cursor: pointer;
+}

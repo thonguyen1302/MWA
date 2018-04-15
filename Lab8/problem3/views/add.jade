@@ -1,0 +1,35 @@
+//
+   Created by Sulav on 7/4/17.
+
+extends layout
+
+block content
+
+    div.container
+        ul.nav.nav-pills
+            li(role='presentation')
+                a(href='/') Home
+            li.active(role='presentation')
+                a(href='/add') Add Location
+            li(role='presentation')
+                a(href='/search') Search Nearby Places
+
+        h1 Add Location
+        div
+            form
+                div.col-xs-6
+                    fieldset.gllpLatlonPicker
+                        input.gllpSearchField(type='text')
+                        input.gllpSearchButton.btn.btn-sm.btn-default(type='button', value='Search...')
+                        div.gllpMap Google Maps
+                        input#latitude.gllpLatitude(type='hidden', value='20', name='latitude')
+                        input#longitude.gllpLongitude(type='hidden', value='20', name='longitude')
+                        input.gllpZoom(type='hidden', value='3')
+                div.col-xs-6
+                    div.form-group
+                        label(for='name') Name
+                        input#name.form-control(type='text', name='name', placeholder='Name')
+                    div.form-group
+                        label(for='category') Category
+                        input#category.form-control(type='text', name='category', placeholder='Category')
+                    button#addLocation.btn.btn-default Add Location

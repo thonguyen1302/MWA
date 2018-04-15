@@ -1,0 +1,34 @@
+Book {
+	_id: "",
+	isbn_number: "",
+	authors: [],
+	keywords: [],
+	copies: [],
+	borrowed_copies: [],
+	available: ""
+}
+
+Student {
+	_id: "",
+	name: "",
+	books_borrowed: [],
+	return_dates: [
+		{
+			book: "",
+			return_date: ""
+		}
+	]
+}
+
+Author {
+	_id: "",
+	name: "",
+	books: []
+}
+
+Librarian {
+	username: "",
+	password: ""
+}
+
+The above NoSQL design model is sufficient to manage library if there are not many entries. In this sample of design model Book is directly storing authors, keywords, copies, borrowed copies, similarly Student is directly storing books borrowed and return dates for borrowed books. This design is good for small library but if the library is large then we can again divide above mentioned parts into separate collections. Since, in normal case there are few authors of books, few students borrow books, and books written by author is also limited in size, we can consider this as many to many relation so embed is better for few to few and linking is better for performance in large data.

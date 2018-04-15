@@ -7,24 +7,27 @@ var bodyParser = require('body-parser');
 var mongo = require('mongoskin');
 
 var index = require('./routes/index');
-var secret = require('./routes/secret');
+var add = require('./routes/add');
+var del = require('./routes/delete');
+var search = require('./routes/search');
+var update = require('./routes/update');
 
 var app = express();
-
-var db = mongo.db('mongodb://localhost:27017/lab7', {native_parser: true});
-db.bind('homework7');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var db = mongo.db('mongodb://sulav:hello123@ds147882.mlab.com:47882/mwalab', {native_parser: true});
+db.bind('lab8');
 
 app.use(function (req, res, next) {
     req.db = db;
@@ -32,7 +35,10 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', index);
-app.use('/secret', secret);
+app.use('/add', add);
+app.use('/search', search);
+app.use('/delete', del);
+app.use('/update', update);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -52,8 +58,8 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-db.close();
-
 app.listen(8080);
+
+db.close();
 
 module.exports = app;

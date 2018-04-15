@@ -1,0 +1,46 @@
+extends layout
+
+block content
+
+    div.container
+        ul.nav.nav-pills
+            li.active(role='presentation')
+                a(href='/') Home
+            li(role='presentation')
+                a(href='/add') Add Location
+            li(role='presentation')
+                a(href='/search') Search Nearby Places
+
+        h1 Locations
+        if locations
+            ul
+                for location in locations
+                    li.locationInfo(id='item' + location._id) #{location.name} - #{location.category}
+                        a
+                            span.btn-link.glyphicon.glyphicon-edit.text-primary.editbtn(type='button', name=JSON.stringify(location), data-toggle='modal', data-target='#editModal')
+                        a
+                            span.glyphicon.glyphicon-remove.text-danger.deletebtn(id=location._id)
+
+        #editModal.modal.fade(role='dialog')
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal') ×
+                        h4.modal-title Edit Location
+                    .modal-body
+                        form
+                            input#_id(type='hidden', name='_id')
+                            div.form-group
+                                label(for='name') Name
+                                input#name.form-control(type='text', name='name', placeholder='Name')
+                            div.form-group
+                                label(for='category') Category
+                                input#category.form-control(type='text', name='category', placeholder='Category')
+                            div.form-group
+                                label(for='longitude') Longitude
+                                input#longitude.form-control(type='text', name='longitude', placeholder='Longitude')
+                            div.form-group
+                                label(for='latitude') Latitude
+                                input#latitude.form-control(type='text', name='latitude', placeholder='Latitude')
+                            button#updateLocation.btn.btn-default Update Location
+                            button.btn.btn-default(type='button', data-dismiss='modal') Close
