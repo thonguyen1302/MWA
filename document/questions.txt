@@ -1,12 +1,1 @@
-1. Why file I/O r?i m� v?n k thay d?i - done
-2. Exports point to another object l� gi - done
-3. How to use call and apply in quizz 1 - done
-4. Give me the code in slide 3 - done
-5. tell me more about slide 4 - done
-6. result slide5 - done
-
-7. Await
-8. subscribe - skip
-9. why we use 'start'
-10. submit assignment
-11. dependencies
+1. why 101 - image 1

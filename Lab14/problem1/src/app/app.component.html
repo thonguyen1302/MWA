@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3 jumbotron">
+      <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text"
+                 class="form-control"
+                 id="name"
+                 formControlName="name" [(ngModel)]="formData.name"/>
+          <div *ngIf="!name.valid" class="text-danger">
+            Required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">E-Mail</label>
+          <input type="text"
+                 class="form-control"
+                 id="email"
+                 formControlName="email" [(ngModel)]="formData.email"/>
+          <div *ngIf="!email.valid" class="text-danger">
+            Required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="post">Post</label>
+          <textarea
+            class="form-control"
+            id="post"
+            formControlName="post" [(ngModel)]="formData.post"></textarea>
+          <div *ngIf="!post.valid" class="text-danger">
+            Minimum length 10
+            <!--<span *ngIf="post.hasError('required')">Required</span>-->
+            <!--<span *ngIf="post.hasError('minlength')">Minimum length 10</span>-->
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!postForm.valid">Submit</button>
+        <button type="button" class="btn btn-primary" (click)="retrieveData()">Get Data</button>
+      </form>
+    </div>
+  </div>
+</div>
